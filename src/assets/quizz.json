@@ -1,15 +1,10 @@
-{
-    "questions": [
+
+  
+   [
       { "id": 1, "question": "q2" },
       { "id": 2, "question": "q1" },
       { "id": 3, "question": "q3" },
       { "id": 4, "question": "q5" }
-    ],
-    "reponse": [
-      { "rep": "rep1", "correct": [true, false] },
-      { "rep": "rep2", "correct": [true, false] },
-      { "rep": "rep3", "correct": [true, false] },
-      { "rep": "rep4", "correct": [true, false] }
     ]
-  }
   
+
