@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Quizz } from '../quizz';
+import { QuizzRep } from '../quizz-rep';
 import { QuizzService } from '../quizz.service';
 
 @Component({
@@ -8,28 +9,48 @@ import { QuizzService } from '../quizz.service';
   styleUrls: ['./parent.component.css']
 })
 export class ParentComponent implements OnInit {
-  list!:Quizz[]
-  oneQ!:Quizz
+  quizzList!: Quizz[];
+  quizzListRep!: QuizzRep[];
+   numQ=0
 
-  @Input() idChild!:number
     constructor(private quizzService:QuizzService) { }
 
   ngOnInit(): void {
-    this.getData()
 
+    this.getAllDataController()
+    
   }
 
-  getData(){
-    return this.quizzService.getAllData().subscribe((data)=>{
-      
-     this.oneQ= data.filter(elem => elem.id === this.idChild)[0]
-     
-      console.log("data",data.filter(elem => elem.id === this.idChild));
-      console.log('liste3',this.list[0]);
-     // this.produit = this.listproduit.filter(elem => elem.refProd === this.ref )[0]
+nextQ(x:number){
 
-      
+this.numQ += x
+}
+
+  getAllDataController() {
+    this.quizzService.getAllData().subscribe((data) => {
+      this.quizzList = Object.values(data[0])[0]
+      var x=(Object.values(data[0])[1])
+      this.quizzListRep =x
+        console.log( this.quizzList);
+
     })
+
   }
+
+
+
+
+  // getData(){
+  //   return this.quizzService.getAllData().subscribe((data)=>{
+
+  //    this.oneQ= data.filter(elem => elem.id === 1)[0]
+
+  //     console.log("data",data.filter(elem => elem.id === 2));
+  //     console.log('liste3',this.list[0]);
+  //    // this.produit = this.listproduit.filter(elem => elem.refProd === this.ref )[0]
+
+
+  //   })
+  // }
 
 }

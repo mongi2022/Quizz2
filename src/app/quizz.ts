@@ -3,6 +3,7 @@ export class Quizz {
   question: string;
   rep: string;
   correct: string;
+
   constructor(id: number, question: string, rep: string, correct: string) {
     this.id = id;
     this.question = question;
